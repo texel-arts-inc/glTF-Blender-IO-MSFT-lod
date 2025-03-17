@@ -1,6 +1,4 @@
 import bpy
-from io_scene_gltf2.blender.exp import gltf2_blender_gather_nodes
-from io_scene_gltf2.blender.imp.gltf2_blender_node import BlenderNode
 
 bl_info = {
     "name" : "glTF MSFT_lod IO",
