@@ -121,8 +121,6 @@ class glTF2ImportUserExtension:
     def gather_import_node_after_hook(self, vnode, gltf_node, blender_object, import_settings):
         # See below.
         if hasattr(vnode, "levels"):
-            for level in vnode.levels:
-                level.object = blender_object
             delattr(vnode, "levels")
 
         if gltf_node.extensions is None or glTF_extension_name not in gltf_node.extensions:
