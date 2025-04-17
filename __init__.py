@@ -122,8 +122,8 @@ class glTF2ImportUserExtension:
         # See below.
         if hasattr(vnode, "levels"):
             for level in vnode.levels:
-                level.object = blender_object
-            delattr(vnode, "levels")
+                if level.object is None:
+                    level.object = blender_object
 
         if gltf_node.extensions is None or glTF_extension_name not in gltf_node.extensions:
             return
@@ -138,6 +138,7 @@ class glTF2ImportUserExtension:
         levels = blender_object.LevelArrayProperty.value
         for i, id in enumerate(ids):
             level = levels.add()
+            level.object = None
 
             if i < len(coverages):
                 level.coverage = coverages[i]
